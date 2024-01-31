@@ -2,6 +2,8 @@
 
 Flask Book Review API
 
+URL: https://github.com/PetarNikolicc/Books.git
+
 Översikt
 
 Denna Flask-applikation tillhandahåller en API för att hantera böcker och recensioner. Den stöder operationer för att lägga till, hämta, uppdatera och radera bokdata samt recensioner.
@@ -60,5 +62,6 @@ Se till att du befinner dig i projektets rotkatalog i terminalen.
 Kör Pytest:
 
 Kör kommandot pytest för att starta testsviten. Pytest kommer automatiskt att upptäcka och köra alla testfall definierade i testfilerna.
-Kontakt
+
+
 

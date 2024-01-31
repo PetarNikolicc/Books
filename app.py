@@ -106,5 +106,16 @@ def delete_review(id):
     db.session.commit()
     return jsonify({'message': 'Review deleted successfully'})
 
+#Top review
+@app.route('/books/top', methods=['GET'])
+def top_rated_books():
+    top_books = db.session.query(
+        Book.title, Book.author, func.avg(Review.rating).label('average_rating')
+    ).join(Review).group_by(Book.id).order_by(func.avg(Review.rating).desc()).limit(5).all()
+
+    top_books_list = [{'title': book.title, 'author': book.author, 'average_rating': round(book.average_rating, 2)} for book in top_books]
+    
+    return jsonify({'top_books': top_books_list})
+
 if __name__ == '__main__':
     app.run(debug=True)
